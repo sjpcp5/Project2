@@ -32,6 +32,10 @@ const words = [
     'loving'
 ];
 
+//db->table w/ id column difficulty column & words column (3 columns: id, diff., and words)
+//get route to bring in words from db//
+//need to query words @ random - another way? 
+
 // Init word
 let randomWord;
 
@@ -88,6 +92,8 @@ function updateTime() {
     }
 }
 
+
+
 // Game over, show end screen
 function gameOver() {
     endgameEl.innerHTML = `
@@ -97,7 +103,11 @@ function gameOver() {
   `;
 
     endgameEl.style.display = 'flex';
+
+// Alert with Giphy
 }
+
+//POST route to post User score and name to db
 
 addWordToDOM();
 
