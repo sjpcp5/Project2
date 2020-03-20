@@ -92,6 +92,14 @@ function updateTime() {
     }
 }
 
+var myMusic;
+
+function startGame() {
+
+    myMusic = new sound("gametheme.mp3");
+    myMusic.play();
+    
+  }
 
 
 // Game over, show end screen

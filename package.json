@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/sjpcp5/Project2/issues"
   },
-  "homepage": "https://github.com/sjpcp5/Project2#readme"
+  "homepage": "https://github.com/sjpcp5/Project2#readme",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "lint": "^0.7.0"
+  }
 }
