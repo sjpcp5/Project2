@@ -92,15 +92,16 @@ function updateTime() {
     }
 }
 
-// var myMusic;
-
-// function startGame() {
-
-//     myMusic = new sound("gametheme.mp3");
-//     myMusic.play();
-    
-//   }
-
+$(document).ready(function(){
+    $('select').formSelect();
+  });
+// $(document).ready(function() {
+//     //Do something
+//     let sound = document.getElementById("audioId");
+// sound.currentTime = 0;
+// sound.loop = true; //if you want it to restart playing automatically when it ends
+// sound.play();
+// });
 
 // Game over, show end screen
 function gameOver() {
