@@ -4,13 +4,14 @@
   "description": "UI polished app deployed through heroku",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "lint": "eslint **/*.js --quiet"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sjpcp5/Project2.git"
   },
-  "author": "",
+  "author": "@ajmyers5, @sjpcp5, @Werewolfflanders, @ltdebelen",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sjpcp5/Project2/issues"
