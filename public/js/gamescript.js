@@ -92,20 +92,21 @@ function updateTime() {
     }
 }
 
-var myMusic;
+// var myMusic;
 
-function startGame() {
+// function startGame() {
 
-    myMusic = new sound("gametheme.mp3");
-    myMusic.play();
+//     myMusic = new sound("gametheme.mp3");
+//     myMusic.play();
     
-  }
+//   }
 
 
 // Game over, show end screen
 function gameOver() {
     endgameEl.innerHTML = `
     <h1>Time ran out</h1>
+    <i class="fas fa-skull-crossbones fa-5x"></i>
     <p>Your final score is ${score}</p>
     <button onclick="location.reload()">Reload</button>
   `;
