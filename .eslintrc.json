@@ -2,7 +2,8 @@
   "env": {
       "browser": true,
       "commonjs": true,
-      "node": true
+      "node": true,
+      "es6": true
   },
   "rules": {
       "no-duplicate-case":"error",
@@ -25,6 +26,9 @@
       "no-redeclare": "error",
       "camelcase": "error",
       "brace-style": "error",
+      "parserOptions":{
+        "ecmaVersion":8
+      },
       "indent": [
           "error",
           2

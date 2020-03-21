@@ -31,8 +31,12 @@ module.exports = function(sequelize, DataTypes) {
 
     });
     Words.beforeUpsert(async(words, options) => {
-        const phraseLength = await words.split(" ").filter(c => /\w/.test(c)).length;
+        let phraseLength = await words.split(" ").filter(c => /\w/.test(c)).length;
         words.letterCount = phraseLength;
+    }, {
+        catch (error) {
+            console.log(error);
+        }
     })
 
     return Words;
