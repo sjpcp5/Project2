@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Project 2 - CoolBeansTypes</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="../public/stylesheets/style.css" />
+  
+    <link 
+        rel="stylesheet" href="reset.css" />
+
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+</head>
+
+<body onload="start()" class="teal lighten-1">
+
+
+  <div id="particles-js"></div>
+  
+  <button id="settings-btn" class="settings-btn">
+    <i class="fas fa-cog"></i>
+  </button>
+
+  <a id="start-btn" onclick="startGame()" class="waves-effect waves-light teal lighten-3 btn-large">Start</a>
+
+  <div id="settings" class="settings">
+      <form id="settings-form">
+          <div>
+              <label for="difficulty">Difficulty</label>
+              <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+          </div>
+      </form>
+  </div>
+ 
+
+  <div class="container" class="hide" id="typeArea">
+
+      <h2><i class="fas fa-briefcase-medical"></i> Vaccine Test <i class="fas fa-briefcase-medical"></i></h2>
+      <small>Type the following:</small>
+
+      <h1 id="word"></h1>
+
+      <input type="text" class ="white-text" id="text" autocomplete="off" placeholder="Type the word here..." />
+
+      <p class="time-container">Time left: <span id="time">10s</span></p>
+
+      <p class="score-container">Score: <span id="score">0</span></p>
+
+      <div id="end-game-container" class="end-game-container"></div>
+    
+  </div>
+  
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha256-U/cHDMTIHCeMcvehBv1xQ052bPSbJtbuiw4QA9cTKz0=" crossorigin="anonymous"></script>
+  <script src="../public/js/gamescript.js"></script>
+</body>
+</html>
+
