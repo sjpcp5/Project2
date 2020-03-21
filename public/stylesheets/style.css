@@ -18,7 +18,9 @@ button {
     border-radius: 4px;
     padding: 5px 15px;
 }
-
+#start-btn {
+    z-index: 999;
+}
 select {
     width: 200px;
     padding: 5px;
@@ -60,12 +62,12 @@ button:focus {
 }
 
 .container {
-    background-color: #34495e;
+    background-color: #097264;
     padding: 20px;
     border-radius: 4px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     color: #fff;
-    position: relative;
+    position: absolute;
     text-align: center;
     width: 500px;
 }
@@ -88,6 +90,7 @@ input {
     width: 300px;
     padding: 12px 20px;
     margin-top: 10px;
+    text-align: center;
 }
 
 .score-container {
@@ -115,3 +118,13 @@ input {
     height: 100%;
     z-index: 1;
 }
+
+/* ---- particles ---- */
+/* body {
+    margin: 0;
+    font: normal 75% Arial, Helvetica, sans-serif;
+  } */
+  canvas {
+    display: block;
+    vertical-align: bottom;
+  }
