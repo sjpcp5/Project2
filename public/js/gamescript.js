@@ -92,20 +92,49 @@ function updateTime() {
     }
 }
 
-var myMusic;
+$(document).ready(function(){
+    $('select').formSelect();
+  });
 
-function startGame() {
+  var startButton = document.getElementById('start-btn');
+  var containerElement = document.getElementById('typeArea');
+  var myMusic;
 
-    myMusic = new sound("gametheme.mp3");
-    myMusic.play();
-    
+  function start() {
+    containerElement.style.display="none"
   }
 
+  function startGame() {
+      myMusic = new sound('./audio/Dark Souls - Menu Theme.mp3');
+      myMusic.play();
+      console.log('Started');
+      startButton.classList.add('hide');
+      containerElement.style.display="block";
+      
+
+
+  }
+
+  function sound(src) {
+      this.sound = document.createElement("audio");
+      this.sound.src = src;
+      this.sound.setAttribute("preload", "auto");
+      this.sound.setAttribute("controls", "none");
+      this.sound.style.display = "none";
+      document.body.appendChild(this.sound);
+      this.play = function(){
+          this.sound.play();
+      }
+      this.stop = function(){
+          this.sound.pause();
+      }
+  }
 
 // Game over, show end screen
 function gameOver() {
     endgameEl.innerHTML = `
     <h1>Time ran out</h1>
+    <i class="fas fa-skull-crossbones fa-5x"></i>
     <p>Your final score is ${score}</p>
     <button onclick="location.reload()">Reload</button>
   `;
