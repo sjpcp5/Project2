@@ -134,6 +134,7 @@ $(document).ready(function(){
             updateTime();
         }
     });
+    $("#text").focus();
   }
 
   function sound(src) {
