@@ -95,13 +95,40 @@ function updateTime() {
 $(document).ready(function(){
     $('select').formSelect();
   });
-// $(document).ready(function() {
-//     //Do something
-//     let sound = document.getElementById("audioId");
-// sound.currentTime = 0;
-// sound.loop = true; //if you want it to restart playing automatically when it ends
-// sound.play();
-// });
+
+  var startButton = document.getElementById('start-btn');
+  var containerElement = document.getElementById('typeArea');
+  var myMusic;
+
+  function start() {
+    containerElement.style.display="none"
+  }
+
+  function startGame() {
+      myMusic = new sound('./audio/Dark Souls - Menu Theme.mp3');
+      myMusic.play();
+      console.log('Started');
+      startButton.classList.add('hide');
+      containerElement.style.display="block";
+      
+
+
+  }
+
+  function sound(src) {
+      this.sound = document.createElement("audio");
+      this.sound.src = src;
+      this.sound.setAttribute("preload", "auto");
+      this.sound.setAttribute("controls", "none");
+      this.sound.style.display = "none";
+      document.body.appendChild(this.sound);
+      this.play = function(){
+          this.sound.play();
+      }
+      this.stop = function(){
+          this.sound.pause();
+      }
+  }
 
 // Game over, show end screen
 function gameOver() {
