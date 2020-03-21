@@ -119,3 +119,8 @@ input {
     z-index: 1;
 }
 
+canvas {
+    display: block;
+    vertical-align: bottom;
+  }
+
