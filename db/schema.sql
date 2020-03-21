@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS coolBeans_db;
+CREATE DATABASE coolBeans_db;
 
 USE coolBeans_db;
 
@@ -28,6 +28,3 @@ USE coolBeans_db;
 --   pword VARCHAR(50) NOT NULL,
 --   PRIMARY KEY (id)
 -- );
-
-
-
