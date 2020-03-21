@@ -4,5 +4,5 @@ VALUES ()
 INSERT INTO scores (player, score)
 VALUES ()
 
-INSERT INTO users (userRole, userName, pword)
+INSERT INTO users (userRole, email, pword)
 VALUES ()
