@@ -119,12 +119,8 @@ input {
     z-index: 1;
 }
 
-/* ---- particles ---- */
-/* body {
-    margin: 0;
-    font: normal 75% Arial, Helvetica, sans-serif;
-  } */
-  canvas {
+canvas {
     display: block;
     vertical-align: bottom;
   }
+
