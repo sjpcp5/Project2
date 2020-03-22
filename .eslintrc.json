@@ -5,7 +5,12 @@
       "node": true,
       "es6": true
   },
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "module"
+    },
   "rules": {
+        
       "no-duplicate-case":"error",
       "no-empty":"error",
       "no-extra-semi":"error",
@@ -26,9 +31,6 @@
       "no-redeclare": "error",
       "camelcase": "error",
       "brace-style": "error",
-      "parserOptions":{
-        "ecmaVersion":8
-      },
       "indent": [
           "error",
           2
@@ -45,5 +47,6 @@
           "error",
           "always"
       ]
+     
   }
 }

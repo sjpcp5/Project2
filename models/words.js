@@ -30,14 +30,14 @@ module.exports = function(sequelize, DataTypes) {
         freezeTableName: true, //model table name will be the same as the model name 
 
     });
-    Words.beforeUpsert(async(words, options) => {
+    Words.beforeUpsert(async function(words, _options) {
         let phraseLength = await words.split(" ").filter(c => /\w/.test(c)).length;
         words.letterCount = phraseLength;
     }, {
         catch (error) {
             console.log(error);
-        }
-    })
+        };
+    });
 
     return Words;
 };
