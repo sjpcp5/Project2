@@ -1,1 +1,5 @@
-node_modules/
+models/index.js
+node_modules
+models
+db
+public
