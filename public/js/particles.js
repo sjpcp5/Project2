@@ -1,33 +1,35 @@
-particlesJS("particles-js",{
+
+particlesJS("particles-js", {
   particles: {
-    number: { value: 30, density: { enable: true, value_area: 300 } },
-    color: { value: "#8db8b3" },
+    number: { value: 30, density: { enable: true, value_area: 800 } },
+    color: { value: "#8db8b3" }, //color of particle - #8db8b3 greeny-grey
     shape: {
-      type: "polygon",
-      stroke: { width: 1, color: "#ad0725" },
-      polygon: { nb_sides: 9 },
+      type: "polygon", //shape of particle
+      stroke: { width: 1, color: "#ad0725" },//border color of particle and color #ad0725=>red
+      polygon: { nb_sides: 8 },
       image: { src: "img/github.svg", width: 100, height: 100 }
     },
     opacity: {
-      value: 0.6,
+      value: 0.6, //opacity of particle
       random: false,
       anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
     },
     size: {
-      value: 10,
+      value: 10, //size of particle
       random: true,
       anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
     },
     line_linked: {
-      enable: false,
+
+      enable: false, //true keeps line, false gets rid of line.  must leave
       distance: 150,
       color: "#ffffff",
       opacity: 0.4,
       width: 1
     },
     move: {
-      enable: true,
-      speed: 3,
+      enable: true, //true = move, false = stationary
+      speed: 3, //speed of particles
       direction: "none",
       random: true,
       straight: false,
@@ -53,3 +55,4 @@ particlesJS("particles-js",{
   },
   retina_detect: true
 });
+
