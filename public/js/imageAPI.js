@@ -1,31 +1,28 @@
-//need variable for URL link to API
-//need AJAX function
-// use local storage to store entered monster
-// need search variable that works between index.html and monsters.js
-// need parameter to return 1 image per monster result
-// variable for capturing results of DnD API search results
-// need variable # monsters to return from search from monster.js 
-// need to append images to html per # monsters to return from search
-// add add event listener click, to select image for chosen monster
-// need to append image of selected monster
-//var DnDseResults = $(".display-data")
-//var monsterInputEL = document.getElementsByClassName(".monsterInput")
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
+const axios = require("axios");
 
-//split function to use last word of search 
-
-// variable parameter to return 1 image or gif 
+const searchNumber = GetOffset();
+const Limitsearch = "1";
+let counter = 0;
+const queryURL = "https://api.giphy.com/v1/gifs/search?q=" + monster + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
 
 
-// function to randomize offset
-// var offsetArray = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"];
-// function getRandomOffset(offsetArray) {
-// var randIndex = Math.floor(Math.random()* offsetArray.length);
-// var randOffset = offsetArray[randIndex];
+function GetOffset() {
+  let offsetArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"];
+  let randomNumber = Math.floor(Math.random() * 24);
+  let searchNumber = offsetArray[randomNumber];
+  console.log(searchNumber);
+  return searchNumber;
+}
+// function gets the last word of the clicked monster
+function getLastWord() {
+  let noHyphens = monsterSearch.replace(/-/g, " ");
+  let noun = noHyphens.split(" ");
+  console.log(noun);
+  return noun[noun.length - 1];
+}
 
-// return randOffset;
-// };
-
-var counter = 0
 $(document).on("click", ".click_this", function () {
   console.log("monster has been clicked prepare image");
   monsterSearch = $(this).data("name");
@@ -34,22 +31,6 @@ $(document).on("click", ".click_this", function () {
   // gets the last word of the clicked monster result
   var monster = getLastWord(monsterSearch);
   console.log(monster);
-  // removes <img> of last clicked monster
-
-  // $("#monsterGif").remove();
-
-  // giphy parameter to return 1 image or gif 
-  var Limitsearch = '1';
-  // array to randomize offset parameter in giphy API
-  var searchNumber = GetOffset();
-
-
-  //console.log(monster);
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + monster + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
-
-  // https://api.giphy.com/v1/gifs/search?api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&q=
-  // dragon&limit=1&offset=0&rating=R&lang=en
-  // var queryURL = "https://www.googleapis.com/customsearch/v1?key=AIzaSyAe4vzXonU1ftH9aSvHEjdZtGCwAa2epiA:&006501763354055401202:easggwesejq=ancientblackdragon";
 
 
   $.ajax({
@@ -62,22 +43,7 @@ $(document).on("click", ".click_this", function () {
     // ========================
 
     for (var i = 0; i < results.length; i++) {
-      // Make a div with jQuery and store it in a variable named monsterDiv.
-      // Make a paragraph tag with jQuery and store it in a variable named p.
-      // 
-      // Make an image tag with jQuery and store it in a variable named monsterImage.
-      // Set the image's src to results[i]'s fixed_height.url.
-      // Append the p variable to the monsterDiv variable.
-      // Append the monsterImage variable to the monsterDiv variable.
-      // Prepend the monsterDiv variable to the element with an class of monsterGifs.
 
-      //var monsterDiv = $("<div id=monsterGif>");
-      //var rating = results[i].rating;
-      //var p = $("<p>").text("Rating: " + rating);
-
-      //var monsterImage = $("<img class=giphy style=db w-100 br2 br--top>");
-
-      // pulls downsized large image from JSON response data
       var monsterImage = $("img").attr("src", results[i].images.downsized_large.url);
 
       //monsterDiv.append(p);
@@ -87,45 +53,72 @@ $(document).on("click", ".click_this", function () {
       } else {
         $(".giphy").empty(monsterImage);
         $(".giphy").append(monsterImage);
-      };
+      }
       counter++;
       console.log("clicked.." + counter);
-    };
+    }
     console.log(response);
     // ==================================
   });
 
 });
 
-
-// function gets the last word of the clicked monster
-function getLastWord() {
-
-  var noHyphens = monsterSearch.replace(/-/g, " ");
-  var noun = noHyphens.split(" ");
-  console.log(noun);
-  return noun[noun.length - 1];
-
-};
-
-//function gets the randome offset parameter to change up image results when search for the same monster
-function GetOffset() {
-  var offsetArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"];
-  var randomNumber = Math.floor(Math.random() * 24);
-  var searchNumber = offsetArray[randomNumber];
-  console.log(searchNumber);
-  return searchNumber;
-};
-
-
 function resultEmpty() {
-  $(".giphy").remove(monsterImage);
-};
+  return $(".giphy").remove(monsterImage);
+}
 //if statement if results do not match name of image do not append
 // need a function that nullifies append of image or do nothing
-// condition variable 
-// compare function of JSON data and monster variable 
+// condition variable
+// compare function of JSON data and monster variable
 //if monster does not match results don't append img else append img
 
 
+/* function init() {
+    inquirer
+        .prompt(questions)
+        .then(function(input) {
+            favColor = input.color;
+            username = input.username;
+            console.log(input, "prompt answers");
+            const queryUrl = `https://api.github.com/users/${username}`;
 
+            axios
+                .get(queryUrl)
+                .then((res) => {
+                    //console.log(res.data, "response 1 data")
+
+                    console.log(favColor, "is the color");
+                    data.username = username;
+                    data.numOfRepo = res.data.public_repos;
+                    data.name = res.data.name;
+                    data.followers = res.data.followers;
+                    data.following = res.data.following;
+                    data.portPic = res.data.avatar_url;
+                    data.location = res.data.location;
+                    data.blog = res.data.blog;
+                    data.company = res.data.company;
+                    data.bio = res.data.bio;
+                    data.color = favColor;
+
+                    axios // axios call a to get stars
+                        .get(`https://api.github.com/users/${username}/repos?per_page=100`)
+                        .then((res) => {
+                            console.log("2nd axios call successful");
+                            data.stars = 0;
+                            for (let i = 0; i < res.data.length; i++) { // Loop through each repository and count the number of stars
+                                data.stars += res.data[i].stargazers_count;
+                            };
+
+                        })
+                        .then(function() {
+                            console.log(`Successful axios calls and prompts`, data)
+                            writeToFile(data);
+
+                        })
+                        .catch(function(error) {
+                            console.log("please enter a valid Github username or other", error);
+                            return
+                        });
+                })
+        });
+init() */
