@@ -74,7 +74,7 @@ button:focus {
 
 .card {
     background-color: #4db6ac;
-    padding: 50px;
+    padding: 40px;
     border-radius: 4px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     color: #fff;
@@ -85,10 +85,10 @@ button:focus {
 
 
 h2 {
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 8px;
+    
+    padding: 10px;
     border-radius: 4px;
-    margin: 0 0 40px;
+    margin:40px;
 }
 
 h1 {
