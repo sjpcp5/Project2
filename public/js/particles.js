@@ -2,7 +2,7 @@
 particlesJS("particles-js", {
   particles: {
     number: { value: 30, density: { enable: true, value_area: 800 } },
-    color: { value: "#8db8b3" }, //color of particle - #8db8b3 greeny-grey
+    color: { value: "#80cbc4" }, //color of particle - #80cbc4 materialize teal lighten-3
     shape: {
       type: "polygon", //shape of particle
       stroke: { width: 1, color: "#ad0725" },//border color of particle and color #ad0725=>red
