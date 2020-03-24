@@ -168,6 +168,7 @@ function gameOver() {
 
 //POST route to post User score and name to db
 
+
 addWordToDOM();
 
 // Event listeners
