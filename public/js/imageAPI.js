@@ -5,10 +5,10 @@ const axios = require("axios");
 const searchNumber = GetOffset();
 const Limitsearch = "1";
 const giphPhrases = {
-  start: "Good luck",
-  encourage: "thumbs up",
-  seconds:"times running out",
-  done:"I'll be back",
+  start: initGiph("Good luck"),
+  encourage: initGiph("thumbs up"),
+  seconds: initGiph("times running out"),
+  done: initGiph("I'll be back"),
 };
 
 
@@ -22,13 +22,7 @@ function GetOffset() {
 function resultEmpty() {
   return $(".giphy").remove(giphyImage);
 }
-// function gets the last word of the clicked monster
-// function getLastWord() {
-//   let noHyphens = monsterSearch.replace(/-/g, " ");
-//   let noun = noHyphens.split(" ");
-//   console.log(noun);
-//   return noun[noun.length - 1];
-// }
+
 
 $(document).on("click", ".click_this", function () {
   console.log("alert has been issued prepare image");
