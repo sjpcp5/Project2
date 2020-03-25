@@ -4,13 +4,14 @@ const axios = require("axios");
 
 const searchNumber = GetOffset();
 const Limitsearch = "1";
-let counter = 0;
 const giphPhrases = {
   start: "Good luck",
   encourage: "thumbs up",
   seconds:"times running out",
   done:"I'll be back",
 };
+
+
 function GetOffset() {
   let offsetArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"];
   let randomNumber = Math.floor(Math.random() * 24);
@@ -19,7 +20,7 @@ function GetOffset() {
   return searchNumber;
 }
 function resultEmpty() {
-  return $(".giphy").remove(monsterImage);
+  return $(".giphy").remove(giphyImage);
 }
 // function gets the last word of the clicked monster
 // function getLastWord() {
@@ -31,8 +32,8 @@ function resultEmpty() {
 
 $(document).on("click", ".click_this", function () {
   console.log("alert has been issued prepare image");
-  monsterSearch = $(this).data("name");
-  console.log(monsterSearch);
+  giphPhrases = $(this).data("name");
+  console.log(giphPhrases);
 });
 
 function initGiph(info) {
@@ -58,3 +59,4 @@ function initGiph(info) {
       return;
     });
 }
+module.exports = initGiph;
