@@ -1,7 +1,5 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
-const axios = require("axios");
-
 const searchNumber = GetOffset();
 const Limitsearch = "1";
 const giphPhrases = {
@@ -26,21 +24,22 @@ function resultEmpty() {
 
 $(document).on("click", ".click_this", function () {
   console.log("alert has been issued prepare image");
-  giphPhrases = $(this).data("name");
-  console.log(giphPhrases);
+  return giphPhrases.done
 });
 
 function initGiph(info) {
   let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + info + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
-  axios
-    .get(queryUrl)
+  $.ajax({
+    url:queryUrl,
+    method: "GET"
+  })
     .then((res) => {
 
       let results = response.data;
       console.log(res, "B");
 
       for (var i = 0; i < results.length; i++) {
-        let giphyImage = $("img").attr("src", results[i].images.downsized_large.url);
+        let giphyImage = $("img").attr(`src= ${results[i].images.downsized_large.url}`);
         if (results[i].data === [0]) {
           return resultEmpty();
         } else {
@@ -53,4 +52,4 @@ function initGiph(info) {
       return;
     });
 }
-module.exports = initGiph;
+module.exports = giphPhrases;
