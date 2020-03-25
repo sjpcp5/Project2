@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 module.exports = function(sequelize, DataTypes) {
-  var Words = sequelize.define("words", {
+  var Words = sequelize.define("Words", {
     // The email cannot be null, and must be a proper email before creation
     difficulty: {
       type: DataTypes.STRING,

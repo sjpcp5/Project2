@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Scores = sequelize.define("scores", {
+  var Scores = sequelize.define("Scores", {
     // The email cannot be null, and must be a proper email before creation
     player: {
       type: DataTypes.STRING,
