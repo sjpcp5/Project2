@@ -60,7 +60,7 @@ button:focus {
 .settings.hide {
     transform: translateY(-100%);
 }
-/* 
+
 .container {
     background-color: #097264;
     padding: 20px;
@@ -70,18 +70,8 @@ button:focus {
     position: absolute;
     text-align: center;
     width: 500px;
-} */
-
-.card {
-    background-color: #4db6ac;
-    padding: 40px;
-    border-radius: 4px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-    color: #fff;
-    position: absolute;
-    text-align: center;
-    width: 700px;
 }
+
 
 
 h2 {
