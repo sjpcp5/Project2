@@ -5,13 +5,12 @@ const axios = require("axios");
 const searchNumber = GetOffset();
 const Limitsearch = "1";
 let counter = 0;
-var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + info + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
-
-const startGiph = "Good luck";
-const encourageGiph = "Thumbs up";
-const secsleftGiph = "times running out";
-const doneGiph = "I'll be back";
-
+const giphPhrases = {
+  start: "Good luck",
+  encourage: "thumbs up",
+  seconds:"times running out",
+  done:"I'll be back",
+};
 function GetOffset() {
   let offsetArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"];
   let randomNumber = Math.floor(Math.random() * 24);
@@ -36,7 +35,8 @@ $(document).on("click", ".click_this", function () {
   console.log(monsterSearch);
 });
 
-function initGiph(info, queryURL) {
+function initGiph(info) {
+  let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + info + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
   axios
     .get(queryUrl)
     .then((res) => {
