@@ -19,19 +19,21 @@
 
 </head>
 
-<body onload="start()" class="teal lighten-1">
+<body onload="start()" class="teal lighten-2">
 
 
   <div id="particles-js"></div>
   
   <button id="settings-btn" class="settings-btn">
-    <i class="fas fa-cog"></i>
+    <i class="fas fa-biohazard"></i>
   </button>
 
-  <a id="start-btn" onclick="startGame()" class="waves-effect waves-light teal lighten-3 btn-large">Start</a>
+  <a id="start-btn" onclick="startGame()" class="waves-effect waves-light teal lighten-2 btn-large">Start</a>
 
   <div id="settings" class="settings">
+   
       <form id="settings-form">
+
           <div>
               <label for="difficulty">Difficulty</label>
               <select id="difficulty">
@@ -44,14 +46,14 @@
   </div>
  
 
-  <div class="container" class="hide" id="typeArea">
+  <div class="card teal lighten-3" class="hide" id="typeArea">
 
       <h2><i class="fas fa-briefcase-medical"></i> Vaccine Test <i class="fas fa-briefcase-medical"></i></h2>
       <small>Type the following:</small>
 
       <h1 id="word"></h1>
 
-      <input type="text" class ="white-text" id="text" autocomplete="off" placeholder="Type the word here..." />
+      <input type="text" class ="white-text"  id="text" autocomplete="off" placeholder="Type the word here..." />
 
       <p class="time-container">Time left: <span id="time">10s</span></p>
 

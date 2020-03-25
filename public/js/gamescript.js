@@ -158,7 +158,7 @@ function gameOver() {
     <h1>Time ran out</h1>
     <i class="fas fa-skull-crossbones fa-5x"></i>
     <p>Your final score is ${score}</p>
-    <a onclick="location.reload()" class="waves-effect waves-light teal lighten-3 btn-large">Reload</a>
+    <a onclick="location.reload()" class="waves-effect waves-light teal lighten-2 btn-large">Reload</a>
   `;
 
   endgameEl.style.display = "flex";
