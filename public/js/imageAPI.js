@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
 const searchNumber = GetOffset();
-const Limitsearch = "20";
+const Limitsearch = "25";
 const giphPhrases = {
   start: "Good luck",
   encourage:"thumbs up",
@@ -23,10 +23,11 @@ function GetOffset() {
 // }
 let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphPhrases.done + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
 
-$(document).on("click", ".close-alert", function (err) {
+$(document).off("click", ".close-alert").on("click", ".close-alert", function (err) {
   err.preventDefault();
+  $(".close-alert").trigger("reset");
   console.log("alert has been issued prepare image");
-  console.log(giphPhrases.done,"e");
+  console.log(giphPhrases.encourage,"e");
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -40,9 +41,6 @@ $(document).on("click", ".close-alert", function (err) {
           return $(".giphy").append(giphyImage);
         }
       }
-    })
-    .done((response)=>{
-      $(".close-alert").trigger("reset");
     });
 });
 // module.exports = giphPhrases;
