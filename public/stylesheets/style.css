@@ -142,3 +142,6 @@ canvas {
     opacity: 50%;
   } */
 
+#settings {
+    padding: 10px;
+}
