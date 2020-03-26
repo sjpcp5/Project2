@@ -4,11 +4,11 @@ const searchNumber = GetOffset();
 const Limitsearch = "25";
 const giphPhrases = {
   start: "Good luck",
-  encourage:"thumbs up",
-  seconds: "times running out",
-  done: "Ill be back",
+  encourage: "https://api.giphy.com/v1/gifs/search?q=" + "thumbs up" + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en",
+  seconds: "https://api.giphy.com/v1/gifs/search?q=" + "Times Running out" + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en",
+  done: "https://api.giphy.com/v1/gifs/search?q=" + "Ill be back" + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en",
 };
-
+var goodLuck = "";
 
 
 function GetOffset() {
@@ -21,11 +21,11 @@ function GetOffset() {
 // function resultEmpty() {
 //   return $(".giphy").remove("src","");
 // }
-let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphPhrases.done + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
+let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphPhrases.start + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
 
-$(document).off("click", ".close-alert").on("click", ".close-alert", function (err) {
+$(document).off("click", "#start-game-button").on("click", "#start-game-button", function (err) {
   err.preventDefault();
-  $(".close-alert").trigger("reset");
+  $("#start-game-button").trigger("reset");
   console.log("alert has been issued prepare image");
   console.log(giphPhrases.encourage,"e");
   $.ajax({
@@ -36,11 +36,24 @@ $(document).off("click", ".close-alert").on("click", ".close-alert", function (e
       let results = response.data;
       console.log(response, "B");
       for (var i = 0; i < results.length; i++) {
-        var giphyImage = $("img").attr("src", results[i].images.downsized_large.url);
+        let imageLink = results[i].images.downsized_large.url;
+        let giphyImage = `<img class=materialboxed width=650 src=${imageLink}></img>`;
         if (results[i].data === [0]) {
-          return $(".giphy").append(giphyImage);
+          return goodLuck = giphyImage;
         }
       }
     });
 });
+
 // module.exports = giphPhrases;
+/* .then(function(response){
+  let results = response.data;
+  console.log(response, "B");
+  for (var i = 0; i < results.length; i++) {
+    let imageLink = results[i].images.downsized_large.url;
+    let giphyImage = $("img").attr("src",imageLink);
+    if (results[i].data === [0]) {
+      return $(".giphy").append(giphyImage);
+    }
+  }
+}); */
