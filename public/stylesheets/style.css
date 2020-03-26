@@ -55,6 +55,7 @@ button:focus {
     justify-content: center;
     transform: translateY(0);
     transition: transform 0.3s ease-in-out;
+    padding: 10px;
 }
 
 .settings.hide {
@@ -149,4 +150,9 @@ canvas {
    background-color: #80cbc4;
    padding: 6px 6px;
    text-align: right;
+  }
+
+  #topModal {
+      margin-right: 10px;
+      margin-left: 10px;
   }
