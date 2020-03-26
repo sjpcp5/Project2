@@ -85,6 +85,8 @@ $(document).ready(function() {
 
     const timeInterval = setInterval(updateTime, 1000);
 
+
+  
     function updateTime() {
       time--;
       timeEl.innerHTML = time + "s";
