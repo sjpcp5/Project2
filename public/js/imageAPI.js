@@ -1,13 +1,14 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
 const searchNumber = GetOffset();
-const Limitsearch = "1";
+const Limitsearch = "20";
 const giphPhrases = {
-  start: initGiph("Good luck"),
-  encourage: initGiph("thumbs up"),
-  seconds: initGiph("times running out"),
-  done: initGiph("I'll be back"),
+  start: "Good luck",
+  encourage:"thumbs up",
+  seconds: "times running out",
+  done: "Ill be back",
 };
+
 
 
 function GetOffset() {
@@ -17,39 +18,31 @@ function GetOffset() {
   console.log(searchNumber);
   return searchNumber;
 }
-function resultEmpty() {
-  return $(".giphy").remove(giphyImage);
-}
+// function resultEmpty() {
+//   return $(".giphy").remove("src","");
+// }
+let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphPhrases.done + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
 
-
-$(document).on("click", ".click_this", function () {
+$(document).on("click", ".close-alert", function (err) {
+  err.preventDefault();
   console.log("alert has been issued prepare image");
-  return giphPhrases.done
-});
-
-function initGiph(info) {
-  let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + info + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
+  console.log(giphPhrases.done,"e");
   $.ajax({
-    url:queryUrl,
-    method: "GET"
+    url: queryURL,
+    method: "GET",
   })
-    .then((res) => {
-
+    .then(function(response){
       let results = response.data;
-      console.log(res, "B");
-
+      console.log(response, "B");
       for (var i = 0; i < results.length; i++) {
-        let giphyImage = $("img").attr(`src= ${results[i].images.downsized_large.url}`);
+        var giphyImage = $("img").attr("src", results[i].images.downsized_large.url);
         if (results[i].data === [0]) {
-          return resultEmpty();
-        } else {
           return $(".giphy").append(giphyImage);
         }
       }
     })
-    .catch(function(error) {
-      console.log("C", error);
-      return;
+    .done((response)=>{
+      $(".close-alert").trigger("reset");
     });
-}
-module.exports = giphPhrases;
+});
+// module.exports = giphPhrases;
