@@ -1,5 +1,4 @@
 # Project2 Corona Typer
-
 Saphirah Pociluyko, Christopher Wood, Lawrence De Belen, Andrew Myers
 
 ## USERSTORY:
@@ -21,7 +20,7 @@ We wanted to create an interactive, fun and yet constructive game with the visio
 ![Modals](https://user-images.githubusercontent.com/56936352/77713096-829e8280-6fa3-11ea-951f-6b58377ae0d4.png)
 
 ## Code Example
-
+```
 module.exports = function(sequelize, DataTypes) {
 var Scores = sequelize.define(
 "Scores",
@@ -44,7 +43,7 @@ len: [1, 1000]
 
 return Scores;
 };
-
+```
 ## How to use?
 
 The object of Vaccine Typer is to rid the world of infection by typing as fast and as accurately as possible. Type as many words as you can before time runs out. Answering correctly gives precious seconds back to the player and increases the score counter. How long will you survive?
@@ -52,3 +51,4 @@ The object of Vaccine Typer is to rid the world of infection by typing as fast a
 ## Links
 
 https://github.com/sjpcp5/Project2
+

@@ -128,8 +128,30 @@ input {
 }
 
 canvas {
-  display: block;
-  vertical-align: bottom;
+    display: block;
+    vertical-align: bottom;
+  }
+
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #e6b8b8;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  } 
+
+  /* #particles-js {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    opacity: 50%;
+  } */
+  html {
+    line-height: 1.5;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 }
 
 #particles-js {
@@ -142,6 +164,7 @@ canvas {
   background-size: cover;
   background-position: 50% 50%;
 }
+
 
 .modal-content {
   left: 0;
@@ -166,3 +189,4 @@ canvas {
 #high-score-list {
   color: black;
 }
+
