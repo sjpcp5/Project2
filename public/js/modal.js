@@ -8,6 +8,7 @@ $(document).ready(function(){
     $('#modal2').modal();
     $('#modal3').modal();
     $('#modal4').modal();
+   
 
 
 });

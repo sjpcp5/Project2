@@ -23,13 +23,12 @@ function GetOffset() {
 // }
 let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphPhrases.start + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
 
-$(document).on("submit", "#start-game-button", function (err) {
-  err.preventDefault();
-  $("#start-game-button").trigger("modal5");
+$(document).ready(function () {
+  $("#modal#").modal();
   console.log("alert has been issued prepare image");
-  console.log(giphPhrases.encourage,"e");
+  console.log(queryURL,"e");
   $.ajax({
-    url: queryURL,
+    url: done,
     method: "GET",
   })
     .then(function(response){
