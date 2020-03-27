@@ -3,7 +3,6 @@ $(document).ready(function() {
   const text = document.getElementById("text");
   const scoreEl = document.getElementById("score");
   const timeEl = document.getElementById("time");
-  const endgameEl = document.getElementById("end-game-container");
   const settingsBtn = document.getElementById("settings-btn");
   const settings = document.getElementById("settings");
   const startBtn = document.getElementById("start-btn");
@@ -11,7 +10,13 @@ $(document).ready(function() {
   const difficultyForm = document.getElementById("difficulty-form");
   const difficultyArea = document.getElementById("difficultyArea");
   const difficulty = document.getElementById("difficulty");
-  const startGameBtn = document.getElementById("start-game-button");
+  const enterInitialsForm = document.getElementById("enter-initials-form");
+  const enterInitialsArea = document.getElementById("enterInitialsArea");
+  const initialsHeader = document.getElementById("enterInitialsHeader");
+  const highScoreArea = document.getElementById("highScoresArea");
+  const highScoreList = document.getElementById("high-score-list");
+  const btnHighScoreModal = document.getElementById("btn-hs-modal");
+  const modalHighScoreList = document.getElementById("modal-high-scores-list");
 
   let diffculty_level;
   let randomWord;
@@ -23,6 +28,8 @@ $(document).ready(function() {
   function init() {
     $(typeArea).css("display", "none");
     $(difficultyArea).css("display", "none");
+    $(enterInitialsArea).css("display", "none");
+    $(highScoreArea).css("display", "none");
     $("select").formSelect();
   }
 
@@ -34,9 +41,11 @@ $(document).ready(function() {
   function start() {
     $(difficultyArea).css("display", "block");
     $(startBtn).css("display", "none");
+    myMusic = new sound("./audio/Dark Souls - Menu Theme.mp3");
+    myMusic.play();
   }
 
-  // Add event listener when user selects the difficulty leve
+  // Add event listener when user selects the difficulty level
 
   difficultyForm.addEventListener("submit", function test(e) {
     e.preventDefault();
@@ -85,15 +94,13 @@ $(document).ready(function() {
 
     const timeInterval = setInterval(updateTime, 1000);
 
-
-  
     function updateTime() {
       time--;
       timeEl.innerHTML = time + "s";
 
       if (time === 0) {
         clearInterval(timeInterval);
-        gameOver();
+        enterInitials();
       }
     }
 
@@ -122,18 +129,104 @@ $(document).ready(function() {
     addWordToDom();
   }
 
-  function gameOver() {
-    endgameEl.innerHTML = `
+  function enterInitials() {
+    initialsHeader.innerHTML = `
     <h1>Time ran out</h1>
+    <br>
     <i class="fas fa-skull-crossbones fa-5x"></i>
+    <br>
     <p>Your final score is ${score}</p>
-    <a onclick="location.reload()" class="waves-effect waves-light teal lighten-3 btn-large">Reload</a>
-  `;
+    <br>
+    `;
+    $(enterInitialsArea).css("display", "block");
+  }
 
-    endgameEl.style.display = "flex";
+  enterInitialsForm.addEventListener("submit", function test(e) {
+    e.preventDefault();
+    const player = $("#initials").val();
+    submitPlayerScore(player, score);
+  });
+
+  function submitPlayerScore(player, score) {
+    const playerData = {
+      player: player,
+      score: score
+    };
+
+    $.ajax({
+      method: "POST",
+      url: "/api/player",
+      data: playerData
+    }).then(response => {
+      getHighScores();
+    });
+  }
+
+  function getHighScores() {
+    $.ajax({
+      method: "GET",
+      url: "/api/player/scores"
+    }).then(response => {
+      displayHighScores(response);
+    });
+  }
+
+  function displayHighScores(highscores) {
+    $(enterInitialsArea).css("display", "none");
+    $(typeArea).css("display", "none");
+    $(highScoreArea).css("display", "block");
+
+    let html = "";
+
+    highscores.forEach((highscore, idx) => {
+      html += `
+            <li class="collection-item">${idx + 1}. ${highscore.player} - ${
+        highscore.score
+      }</li>
+      `;
+    });
+
+    highScoreList.innerHTML = html;
+  }
+
+  function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function() {
+      this.sound.play();
+    };
+    this.stop = function() {
+      this.sound.pause();
+    };
   }
 
   settingsBtn.addEventListener("click", () => {
     settings.classList.toggle("hide");
+  });
+
+  $(".restart").on("click", function() {
+    window.location.reload();
+  });
+
+  $(btnHighScoreModal).on("click", function() {
+    $.ajax({
+      method: "GET",
+      url: "/api/player/scores"
+    }).then(response => {
+      let html = "";
+
+      response.forEach((highscore, idx) => {
+        html += `
+              <li class="collection-item">${idx + 1}. ${highscore.player} - ${
+          highscore.score
+        }</li>
+        `;
+      });
+      modalHighScoreList.innerHTML = html;
+    });
   });
 });
