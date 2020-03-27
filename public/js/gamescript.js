@@ -35,7 +35,7 @@ $(document).ready(function () {
 
   init();
 
-  // Add listener to "Start" button to have the user choose "difficulty level" of the game
+  // Add listener to "Start" button to have the user choose "difficulty level" of the game.
   startBtn.addEventListener("click", start);
 
   function start() {
@@ -196,10 +196,10 @@ $(document).ready(function () {
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
-    this.play = function() {
+    this.play = function () {
       this.sound.play();
     };
-    this.stop = function() {
+    this.stop = function () {
       this.sound.pause();
     };
   }
@@ -208,11 +208,11 @@ $(document).ready(function () {
     settings.classList.toggle("hide");
   });
 
-  $(".restart").on("click", function() {
+  $(".restart").on("click", function () {
     window.location.reload();
   });
 
-  $(btnHighScoreModal).on("click", function() {
+  $(btnHighScoreModal).on("click", function () {
     $.ajax({
       method: "GET",
       url: "/api/player/scores"
