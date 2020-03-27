@@ -1,53 +1,46 @@
-# Project2 Covid-Vaccine Typer
-
+# Project2 Corona Typer
 Saphirah Pociluyko, Christopher Wood, Lawrence De Belen, Andrew Myers
 
 ## USERSTORY:
+AS A young professional, I WANT to better my typing in speed, skill, and accuracy, SO THAT I will be more competitive and more efficient as an employee.
 
-AS A young professional, I WANT to better my typing in speed, skill, and accuracy , SO THAT I will be more competitive and more efficient as an employee.
-
-## Covid-Vaccine Typer
-
-Covid-Vaccine Typer is a fast-paced typing game aimed at improving typing speed, skill, and accuracy across
+## Corona Typer
+Corona Typer is a fast-paced typing game aimed at improving typing speed, skill, and accuracy.
 
 ## Motivation
-
-At Beer Me, we wanted to build out a beer-specific app to cut through the noise and get to the heart of delicious beers available within a close proximity.
+We wanted to create an interactive, fun and yet constructive game with the vision to increase typing skills across age, skill, and vocation.
 
 ## Screenshots
-
-![BeerMe](https://user-images.githubusercontent.com/56936352/73216540-c9930780-411b-11ea-8f59-0eccb069f68f.png)
-
-## Features
-
-Beer Me simplifies users search for local breweries.
+![Image Description](https://imgur.com/a/p74bUvC)
+![Image Description](https://imgur.com/a/pkfKveP)
+![Image Description](https://imgur.com/a/Q14ljfd)
 
 ## Code Example
+module.exports = function(sequelize, DataTypes) {
+  var Scores = sequelize.define(
+    "Scores",
+    {
+      // The email cannot be null, and must be a proper email before creation
+      player: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      score: {
+        // user name  cannot be null and must be unique
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          isNumeric: true,
+          len: [1, 1000]
+        }
+      }},
+    {freezeTableName: true //model table name will be the same as the model name});
 
-function citySearch(e) {
-e.preventDefault();
-
-    if ($("#cityInput").val() !== "") {
-      //only run event if search form isn't empty
-      $("#cardDiv").hide();
-
-      let city = $("#cityInput").val();
-
-      const queryURL = `https://api.foursquare.com/v2/venues/explore?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323&limit=10&near=${city}&query=brewery`;
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      }).then(function(response) {
-        $("#map").show();
-        $('html, body').animate({
-          scrollTop: ($('#map').offset().top)
-      },500);
+  return Scores;
+};
 
 ## How to use?
-
-Enter desired city name. A map will populate close breweries where you will be able to select a brewery and view it's name and address. By clicking "More Details" in the pop-up you can view the brewery's price rating, phone number, and website.
+The object of Vaccine Typer is to rid the world of infection by typing as fast and as accurately as possible. Type as many words as you can before time runs out. Answering correctly gives precious seconds back to the player and increases the score counter. How long will you survive?
 
 ## Links
-
-https://ajmyers5.github.io/Group-666/
-https://github.com/ajmyers5/Group-666
+https://github.com/sjpcp5/Project2

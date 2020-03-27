@@ -21,24 +21,4 @@ module.exports = function(app) {
       res.json(dbWords);
     });
   });
-
-  // Get route for getting top 5 highscores
-  app.get("/api/player/scores", function(req, res) {
-    db.Scores.findAll({
-      order: [["score", "DESC"]],
-      limit: 5
-    }).then(function(dbScores) {
-      res.json(dbScores);
-    });
-  });
-
-  // Post route for saving player name and score
-  app.post("/api/player", function(req, res) {
-    db.Scores.create({
-      player: req.body.player,
-      score: req.body.score
-    }).then(function(dbPlayer) {
-      res.json(dbPlayer);
-    });
-  });
 };
