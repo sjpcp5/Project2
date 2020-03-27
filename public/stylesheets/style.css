@@ -143,6 +143,26 @@ canvas {
   background-position: 50% 50%;
 }
 
+.modal-content {
+  left: 0;
+  right: 0;
+  background-color: #e1f5fe;
+  padding: 5px;
+  max-height: 40%;
+  will-change: top, opacity;
+}
+
+#modal-footer {
+  background-color: #80cbc4;
+  padding: 6px 6px;
+  text-align: right;
+}
+
+#topModal {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 #high-score-list {
   color: black;
 }
