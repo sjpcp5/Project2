@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Words = sequelize.define(
     "Words",
     {
@@ -32,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   );
   Words.beforeUpsert(
-    async function(words, options) {
+    async function (words, options) {
       let phraseLength = await words.split(" ").filter(c => /\w/.test(c))
         .length;
       words.letterCount = phraseLength;

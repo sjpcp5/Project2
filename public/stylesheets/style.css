@@ -51,7 +51,6 @@ button:focus {
 }
 
 .settings {
-
   position: absolute;
   top: 0;
   left: 0;
@@ -80,8 +79,6 @@ button:focus {
   text-align: center;
   width: 500px;
 }
-
-
 
 h2 {
   background-color: rgba(0, 0, 0, 0.3);
@@ -131,39 +128,41 @@ input {
 }
 
 canvas {
-    display: block;
-    vertical-align: bottom;
-  }
+  display: block;
+  vertical-align: bottom;
+}
 
 #particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #e6b8b8;
-    background-image: url("");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-  } 
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #e6b8b8;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
 
 .modal-content {
-    left: 0;
-   right: 0;
-   background-color: #e1f5fe;
-   padding: 5px;
-   max-height: 40%;
-   will-change: top, opacity;
-   
-  }
+  left: 0;
+  right: 0;
+  background-color: #e1f5fe;
+  padding: 5px;
+  max-height: 40%;
+  will-change: top, opacity;
+}
 
 #modal-footer {
-   background-color: #80cbc4;
-   padding: 6px 6px;
-   text-align: right;
-  }
+  background-color: #80cbc4;
+  padding: 6px 6px;
+  text-align: right;
+}
 
-  #topModal {
-      margin-right: 10px;
-      margin-left: 10px;
-  }
+#topModal {
+  margin-right: 10px;
+  margin-left: 10px;
+}
 
+#high-score-list {
+  color: black;
+}
