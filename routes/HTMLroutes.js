@@ -23,8 +23,8 @@ module.exports = function(app) {
   });
 
   // words route loads words.html
-  app.get("/words", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/words.html"));
+  app.get("/highscore", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/highscore.html"));
   });
 
 };
