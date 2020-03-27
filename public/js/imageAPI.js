@@ -24,11 +24,11 @@ function GetOffset() {
 let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphPhrases.start + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
 
 $(document).ready(function () {
-  $("#modal#").modal();
+  $("#modal").modal();
   console.log("alert has been issued prepare image");
   console.log(queryURL,"e");
   $.ajax({
-    url: done,
+    url: giphPhrases.done,
     method: "GET",
   })
     .then(function(response){
