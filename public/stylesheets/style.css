@@ -70,7 +70,7 @@ button:focus {
 }
 
 .container {
-  background-color: #097264;
+  background-color: #4db6ac;
   padding: 20px;
   border-radius: 4px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
@@ -81,7 +81,7 @@ button:focus {
 }
 
 h2 {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #009688;
   padding: 8px;
   border-radius: 4px;
   margin: 0 0 40px;
