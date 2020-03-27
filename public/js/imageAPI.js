@@ -23,9 +23,9 @@ function GetOffset() {
 // }
 let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphPhrases.start + "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" + Limitsearch + "&offset=" + searchNumber + "&lang=en";
 
-$(document).off("click", "#start-game-button").on("click", "#start-game-button", function (err) {
+$(document).on("submit", "#start-game-button", function (err) {
   err.preventDefault();
-  $("#start-game-button").trigger("reset");
+  $("#start-game-button").trigger("modal5");
   console.log("alert has been issued prepare image");
   console.log(giphPhrases.encourage,"e");
   $.ajax({
@@ -37,23 +37,12 @@ $(document).off("click", "#start-game-button").on("click", "#start-game-button",
       console.log(response, "B");
       for (var i = 0; i < results.length; i++) {
         let imageLink = results[i].images.downsized_large.url;
-        let giphyImage = `<img class=materialboxed width=650 src=${imageLink}></img>`;
+        let giphyImage = $("img").attr("src",imageLink);
         if (results[i].data === [0]) {
-          return goodLuck = giphyImage;
+          return $(".giphyGL").append(giphyImage);
         }
       }
     });
 });
 
 // module.exports = giphPhrases;
-/* .then(function(response){
-  let results = response.data;
-  console.log(response, "B");
-  for (var i = 0; i < results.length; i++) {
-    let imageLink = results[i].images.downsized_large.url;
-    let giphyImage = $("img").attr("src",imageLink);
-    if (results[i].data === [0]) {
-      return $(".giphy").append(giphyImage);
-    }
-  }
-}); */

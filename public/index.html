@@ -92,7 +92,7 @@
     <div id="modal3" class="modal">
       <div class="modal-content">
         <h4>Restart Game</h4>
-        <img class="giphy" />
+        <img class="" />
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-close waves-effect waves-green btn-flat"
@@ -201,14 +201,25 @@
           </select>
         </div>
         <button
-          onclick="M.toast({html:goodLuck})"
+        data-target = "modal5"
+          onclick="M.toast({html:'Good Luck'})"
           type="submit"
           id="start-game-button"
-          class="btn waves-effect waves-light teal btn-large lighten-2"
+          class="waves-effect waves-light teal btn-large lighten-2"
+          class='btn modal-trigger'
         >
           Start Game
       </button>
+      
       </form>
+    </div>
+    
+    <!-- modal 5 structure -->
+    <div id="modal5"class="modal bottom-sheet">
+      <div class="modal-content">
+        <h4>Good Luck</h4>
+        <img class= "giphyGL" src=''>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery.js"></script>
