@@ -9,6 +9,10 @@
     "ecmaVersion": 8,
     "sourceType": "module"
   },
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "module"
+    },
   "rules": {
     "no-duplicate-case": "error",
     "no-empty": "error",
