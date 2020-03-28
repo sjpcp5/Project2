@@ -2,6 +2,8 @@
 /* eslint-disable no-unused-vars */
 const searchNumber = GetOffset();
 const Limitsearch = "25";
+
+// URL to giphy
 const giphPhrases = {
   start: "Good luck",
   encourage:
@@ -29,8 +31,9 @@ const giphPhrases = {
     searchNumber +
     "&lang=en"
 };
-var goodLuck = "";
 
+
+// offset function pulls a random giphy associated with giphrases url
 function GetOffset() {
   let offsetArray = [
     "1",
@@ -64,18 +67,8 @@ function GetOffset() {
   // console.log(searchNumber);
   return searchNumber;
 }
-// function resultEmpty() {
-//   return $(".giphy").remove("src","");
-// }
-let queryURL =
-  "https://api.giphy.com/v1/gifs/search?q=" +
-  giphPhrases.start +
-  "&api_key=71957ReGgM9ed9MEpRgc0IVcliXGpSPq&limit=" +
-  Limitsearch +
-  "&offset=" +
-  searchNumber +
-  "&lang=en";
 
+// API call to the document
 $(document).ready(function () {
   $("#modal").modal();
   // console.log("alert has been issued prepare image");

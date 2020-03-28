@@ -1,10 +1,10 @@
-# Project2 Corona Typer
+# Project 2 Corona Typer
 
 Saphirah Pociluyko, Christopher Wood, Lawrence De Belen, Andrew Myers
 
 ## USERSTORY:
 
-AS A young professional, I WANT to better my typing in speed, skill, and accuracy, SO THAT I will be more competitive and more efficient as an employee.
+AS A young person quarantined from home, I WANT to better my typing in speed, skill, and accuracy, SO THAT I will be more competitive and more proficient as a user.
 
 ## Corona Typer
 
