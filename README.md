@@ -58,4 +58,5 @@ The object of Vaccine Typer is to rid the world of infection by typing as fast a
 
 ## Links
 
-https://github.com/sjpcp5/Project2
+Github: https://github.com/sjpcp5/Project2
+Heroku: https://project2-coolbeanzzzzz.herokuapp.com/
