@@ -3,13 +3,13 @@ module.exports = function (sequelize, DataTypes) {
   var Scores = sequelize.define(
     "Scores",
     {
-      // The email cannot be null, and must be a proper email before creation
+      // The player can not be null
       player: {
         type: DataTypes.STRING,
         allowNull: false
       },
       score: {
-        // user name  cannot be null and must be unique
+        // the score must be an integer and unique
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {

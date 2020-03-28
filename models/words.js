@@ -2,7 +2,7 @@ module.exports = function (sequelize, DataTypes) {
   var Words = sequelize.define(
     "Words",
     {
-      // The email cannot be null, and must be a proper email before creation
+      // The difficulty cannot be null, and must be a validated
       difficulty: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
         }
       },
       words: {
-        // user name  cannot be null and must be unique
+        // words cannot be null and must be unique
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
           len: [1, 20]
         }
       },
-      // The password cannot be null
+      // the letter count is suppose to count every character of words entered in the hook
       letterCount: {
         type: DataTypes.INTEGER,
         allowNull: false
@@ -31,6 +31,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
   Words.beforeUpsert(
+    // eslint-disable-next-line no-unused-vars
     async function (words, options) {
       let phraseLength = await words.split(" ").filter(c => /\w/.test(c))
         .length;

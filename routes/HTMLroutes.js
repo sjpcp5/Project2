@@ -22,7 +22,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  // words route loads words.html
+  // words route loads highscore
   app.get("/highscore", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/highscore.html"));
   });
