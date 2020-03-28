@@ -31,6 +31,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
   Words.beforeUpsert(
+    // eslint-disable-next-line no-unused-vars
     async function (words, options) {
       let phraseLength = await words.split(" ").filter(c => /\w/.test(c))
         .length;
